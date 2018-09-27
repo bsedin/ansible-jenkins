@@ -1,0 +1,23 @@
+---
+- name: ensure jenkins data dir
+  file:
+    dest: '{{ item }}'
+    state: directory
+    group: 1000
+    mode: g+rwx
+  with_items:
+    - '{{ jenkins_data_dir }}'
+
+- name: run jenkins container
+  docker_container:
+    state: started
+    restart: yes
+    recreate: yes
+    name: jenkins
+    image: kr3ssh/jenkins-ansible:latest
+    pull: true
+    restart_policy: always
+    env: '{{ jenkins_env }}'
+    volumes:
+      - '{{ jenkins_data_dir }}:/var/jenkins_home'
+    published_ports: '{{ jenkins_published_ports }}'
