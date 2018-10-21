@@ -2,5 +2,6 @@ jenkins_hostname: localhost
 jenkins_port: 50000
 jenkins_data_dir: /var/lib/jenkins
 jenkins_env: {}
+jenkins_networks: []
 jenkins_published_ports:
   - '{{ jenkins_port }}:50000'

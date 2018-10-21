@@ -21,3 +21,4 @@
     volumes:
       - '{{ jenkins_data_dir }}:/var/jenkins_home'
     published_ports: '{{ jenkins_published_ports }}'
+    networks: '{{ jenkins_networks }}'
