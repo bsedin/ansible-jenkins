@@ -5,3 +5,5 @@ jenkins_env: {}
 jenkins_networks: []
 jenkins_published_ports:
   - '{{ jenkins_port }}:50000'
+jenkins_volumes:
+  - '{{ jenkins_data_dir }}:/var/jenkins_home'

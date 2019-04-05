@@ -18,7 +18,6 @@
     pull: true
     restart_policy: always
     env: '{{ jenkins_env }}'
-    volumes:
-      - '{{ jenkins_data_dir }}:/var/jenkins_home'
+    volumes: '{{ jenkins_volumes }}'
     published_ports: '{{ jenkins_published_ports }}'
     networks: '{{ jenkins_networks }}'
